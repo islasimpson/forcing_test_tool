@@ -6,6 +6,7 @@ def fixcesmtime(dat,timebndsvar='time_bnds'):
     timebndavg = np.array(dat.isel(M=0)[timebndsvar],
                      dtype='datetime64[s]').view('i8').mean(axis=1).astype('datetime64[s]')
     dat['time'] = timebndavg
+    return dat
 
 
 def readpicontrol(files, timebndsvar='time_bnds'):
